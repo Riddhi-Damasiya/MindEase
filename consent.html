@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consent Form | MindEase</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+        }
+
+        .consent-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #ff7200;
+        }
+
+        h1 {
+            color: #ff7200;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .consent-text {
+            height: 300px;
+            overflow-y: auto;
+            padding: 20px;
+            background: #111;
+            border-radius: 8px;
+            border: 1px solid #333;
+            margin-bottom: 20px;
+        }
+
+        .consent-text::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .consent-text::-webkit-scrollbar-thumb {
+            background: #ff7200;
+            border-radius: 10px;
+        }
+
+        .confirm-area {
+            text-align: center;
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.2);
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .btnn {
+            background: #ff7200;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btnn:hover:enabled {
+            background: white;
+            color: #ff7200;
+        }
+
+        .btnn:disabled {
+            background: gray;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="consent-container">
+        <h1>Consent Form</h1>
+
+        <form action="consent.php" method="POST">
+            <div class="consent-text" id="scrollbox">
+                <!-- REPEATED content to ensure scroll works -->
+                <p>
+                    By consenting, you agree that the data you provide may be used for evaluations by authorized professionals. 
+                    This consent is legally binding and cannot be revoked once the evaluation process has started.
+                </p>
+                <p>
+                    You also agree that your data may be shared with professionals solely for evaluation purposes, 
+                    and you waive your right to revoke this specific consent post-evaluation.
+                </p>
+                <p>
+                    Your privacy is respected. All data will be stored securely and used in accordance with our Terms of Service 
+                    and Privacy Policy. You must read and scroll through this entire form before giving your consent.
+                </p>
+                <p>
+                    ✔ I understand that this consent is required before accessing any mental health evaluation services on this platform.<br>
+                    ✔ I confirm I am giving this consent voluntarily and with full understanding of the implications.<br>
+                    ✔ I agree that this consent is binding and cannot be retracted once services commence.<br>
+                    ✔ I agree to allow MindEase to use my webcam for detecting facial emotion during sessions.
+                </p>
+                <p>This is just filler to ensure the scroll works properly...</p>
+                <p>This is just filler to ensure the scroll works properly...</p>
+                <p>This is just filler to ensure the scroll works properly...</p>
+            </div>
+
+            <div class="confirm-area">
+                <label>
+                    <input type="checkbox" id="agreeBox" name="consent" value="yes" disabled required>
+                    I agree to the terms and conditions stated above.
+                </label>
+                <br><br>
+                <button type="submit" class="btnn" id="continueBtn" disabled>Continue</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const scrollbox = document.getElementById('scrollbox');
+        const agreeBox = document.getElementById('agreeBox');
+        const continueBtn = document.getElementById('continueBtn');
+    
+        scrollbox.addEventListener('scroll', () => {
+            // Using Math.floor to avoid precision issues
+            const atBottom = Math.floor(scrollbox.scrollTop + scrollbox.clientHeight) >= Math.floor(scrollbox.scrollHeight);
+            if (atBottom) {
+                agreeBox.disabled = false;
+            }
+        });
+    
+        agreeBox.addEventListener('change', () => {
+            continueBtn.disabled = !agreeBox.checked;
+        });
+    </script>
+    
+</body>
+</html>

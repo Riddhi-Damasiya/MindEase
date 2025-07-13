@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MindEase - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">MindEase</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Home Section (Keep as it is) -->
+    <div class="section home-section" id="home">
+        <h1>Welcome to MindEase</h1>
+        <p>Your personalized mental wellness companion.</p>
+        <a href="signup.html" class="btn">Get Started</a>
+    </div>
+
+    <!-- About Section (Scrollable) -->
+    <div class="section about-section" id="about">
+        <h1>About MindEase</h1>
+        <p>
+            MindEase is dedicated to improving mental well-being. We provide self-assessments, 
+            guided exercises, and professional recommendations tailored to your needs.
+        </p>
+        <p>
+            Our mission is to create a safe and supportive platform where users can track their 
+            mental health and find personalized guidance.
+        </p>
+    </div>
+
+    <!-- Contact Us Section (Scrollable) -->
+    <div class="section contact-section" id="contact">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you! Reach out to us via:</p>
+        <p>Email: <a href="mailto:support@mindease.com">support@mindease.com</a></p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Follow us on social media:</p>
+        <div class="social-icons">
+            <a href="#">Facebook</a> | 
+            <a href="#">Instagram</a> | 
+            <a href="#">Twitter</a>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<style>
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: black;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: #ff7200;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.menu ul li {
+    margin: 0 15px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #ff7200;
+}
+
+/* Sections */
+.section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+    color: white;
+}
+
+/* Home Section (Remains Same) */
+.home-section {
+    background: url('background.jpg') no-repeat center center/cover;
+}
+
+.home-section h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #ff7200;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+    color: #ff7200;
+}
+
+/* About Section */
+.about-section {
+    background: #222; /* Dark background for contrast */
+    color: white;
+}
+
+.about-section h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    width: 60%;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Contact Section */
+.contact-section {
+    background: black;
+    color: white;
+}
+
+.contact-section h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.contact-section p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.contact-section a {
+    color: #ff7200;
+    text-decoration: none;
+}
+
+.contact-section a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+</style>
