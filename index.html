@@ -37,18 +37,14 @@
                 <!-- <button class="cn"><a href="phq9.html">JOIN US</a></button> -->
 
                 <div class="form">
-                    <h2>Login Here</h2>
-                    <!-- EMAIL INPUT -->
-                    <input type="email" id="email" name="fakeemail" placeholder="Enter Email Here" autocomplete="new-email" value="">
+                    <form method="POST" action="login.php" onsubmit="return validateLogin();">
+    <h2>Login Here</h2>
+    <input type="email" id="email" name="email" placeholder="Enter Email Here" required>
+    <input type="password" id="password" name="password" placeholder="Enter Password Here" required>
+    <button class="btnn" type="submit">Login</button>
+    <p class="link">Don't have an account?<br><a href="signup.html">Sign up here</a></p>
+</form>
 
-                    <!-- PASSWORD INPUT -->
-                    <input type="password" id="password" name="fakepassword" placeholder="Enter Password Here" autocomplete="new-password" value="">
-
-
-                    <button class="btnn" onclick="validateLogin()"><a href="dass21.html" >Login</a></button>
-
-                    <p class="link">Don't have an account<br>
-                    <a href="signup.html">Sign up </a> here</a></p>
                     
 
                 </div>
