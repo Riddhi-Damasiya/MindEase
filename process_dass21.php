@@ -1,6 +1,13 @@
 <?php
 session_start();
 
+
+if (!isset($_SESSION['user_id'])) {
+    echo "<script>alert('Please log in first.'); window.location.href='index.html';</script>";
+    exit();
+}
+
+
 // ▼ DB connection
 $host = "localhost";
 $user = "root";
@@ -19,9 +26,17 @@ $user_id = $_SESSION['user_id'];
 
 // ▼ Collect and sum responses
 $responses = [];
-for ($i = 1; $i <= 21; $i++) {
-    $responses[$i] = isset($_POST["q$i"]) ? (int)$_POST["q$i"] : 0;
+if (!isset($_SESSION['dass21_responses'])) {
+    echo "<script>alert('Session expired or invalid access. Please retake the test.'); window.location.href='dass21.html';</script>";
+    exit();
 }
+
+for ($i = 1; $i <= 21; $i++) {
+    $responses[$i] = isset($_SESSION['dass21_responses']["q$i"]) ? (int)$_SESSION['dass21_responses']["q$i"] : 0;
+}
+
+// Clear session data after use
+unset($_SESSION['dass21_responses']);
 // DASS‑21 uses subscales (sum of 7 items each ×2)
 $depr_idxs  = [3,5,10,13,16,17,21];
 $anx_idxs   = [2,4,7,9,15,19,20];
@@ -33,7 +48,7 @@ $stress_score= array_sum(array_map(fn($i)=>$responses[$i], $stress_idxs)) * 2;
 
 // ▼ Store in database
 $stmt = $conn->prepare("
-  INSERT INTO dass_results (user_id, depression_score, anxiety_score, stress_score)
+  INSERT INTO d_results (user_id, depression_score, anxiety_score, stress_score)
   VALUES (?, ?, ?, ?)
 ");
 $stmt->bind_param("iiii", $user_id, $depr_score, $anx_score, $stress_score);
